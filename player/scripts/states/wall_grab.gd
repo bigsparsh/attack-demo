@@ -1,14 +1,14 @@
 class_name PlayerStateWallGrab extends PlayerState
 
-
 func enter () -> void:
+	player.sprite.play("wall_grab")
 	player.velocity.y = 0.0
 	player.gravity_multiplier = 0.75
 
 func physics_process(_delta: float) -> PlayerState:
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 		player.velocity.x = player.speed * player.direction.x
-	if not player.is_on_wall():
+	if not player.is_on_wall_only():
 		return fall
 	return next_state
 

@@ -11,7 +11,7 @@ func process(_delta) -> PlayerState:
 	return next_state
 
 func physics_process(_delta: float) -> PlayerState:
-	if player.is_on_wall() and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")):
+	if player.is_on_wall_only() and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")):
 		return wall_grab
 	if not player.is_on_floor() and player.velocity.y >= 0.0:
 		# player.add_debug_indicator(Color.YELLOW)

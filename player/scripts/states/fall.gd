@@ -16,7 +16,7 @@ func process(delta) -> PlayerState:
 	return next_state
 
 func physics_process(_delta: float) -> PlayerState:
-	if player.is_on_wall() and player.prev_state == dash:
+	if player.is_on_wall_only() and player.prev_state == dash:
 		return wall_grab
 	if player.is_on_floor():
 		# player.add_debug_indicator(Color.RED)

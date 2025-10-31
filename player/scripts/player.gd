@@ -12,8 +12,8 @@ var prev_state: PlayerState:
 
 
 # region -> Player Variables
-@export var speed: float = 300.0
-@export var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var speed: float = 300.0 
+@export var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") / 1.2
 @export var gravity_multiplier: float = 1.0
 @export var jump_velocity: float = -500.0
 @export var jump_buffer: float = 0.2
@@ -23,7 +23,7 @@ var prev_state: PlayerState:
 @export var dash_cooldown: float = 0.25
 @export var can_dash: bool = true
 @export var coyote_time: float = 0.05
-@export var attack_time: float = 0.5
+@export var attack_time: float = 0.025
 
 @onready var direction: Vector2 = Vector2.ZERO
 var prev_direction: Vector2 = Vector2.ZERO
@@ -75,7 +75,7 @@ func change_state (new_state: PlayerState) -> void:
 	if new_state == null or curr_state == new_state:
 		return
 	
-	print("From: ", curr_state.name, " -> ", new_state.name)
+	print_rich("[color=Green]Player From: ", curr_state.name, " -> ", new_state.name, "[/color]")
 	if curr_state:
 		curr_state.exit()
 

@@ -13,7 +13,7 @@ func physics_process(_delta: float) -> PlayerState:
 	player.velocity.x = player.direction.x * player.speed
 	if not player.is_on_floor():
 		return fall
-	if player.is_on_wall() and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")):
+	if player.is_on_wall_only() and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")):
 		return wall_grab
 	return self
 
